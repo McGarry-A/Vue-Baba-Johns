@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 import Menu from "../views/Menu.vue";
 import Login from "../views/Login.vue";
 import Basket from "../views/Basket.vue";
-
+import ProductDetails from "../components/ProductDetails.vue";
 const routes = [
   {
     path: "/",
@@ -24,6 +24,12 @@ const routes = [
     path: "/basket",
     name: "Basket",
     component: Basket,
+  },
+  {
+    path: "/menu/:id",
+    name: "ProductDetails",
+    component: ProductDetails,
+    props: true,
   },
 ];
 

@@ -9,7 +9,15 @@
       <div class="menu-card">
         <img :src="getImageUrl(section)" alt="image" class="bg-image" />
         <div class="menu-card-text">
-          <h1 class="menu-card-title">{{ section.name }}</h1>
+          <router-link
+            :to="{
+              name: 'ProductDetails',
+              params: { id: section.id, products: section.products[id] },
+            }"
+            class="menu-link"
+          >
+            <h1 class="menu-card-title">{{ section.name }}</h1>
+          </router-link>
         </div>
       </div>
     </div>
@@ -64,7 +72,6 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  
 }
 
 .bg-image {
@@ -72,5 +79,11 @@ export default {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+
+.menu-link {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
 }
 </style>
