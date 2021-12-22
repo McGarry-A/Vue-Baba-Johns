@@ -1,6 +1,8 @@
 <template>
   <div class="navbar">
-    <div class="nav-left"></div>
+    <div class="nav-left">
+      <h2 class="logo">Baba<span id="logo-span">Johns</span></h2>
+    </div>
     <nav class="nav-right">
       <ul class="nav-list">
         <li class="nav-list-item">
@@ -19,11 +21,27 @@
     </nav>
   </div>
   <router-view />
+  <footer></footer>
 </template>
 
-<style scoped>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#logo-span {
+  color: red;
+}
+
 .navbar {
   display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1em 0.5em;
 }
 
 .nav-left {
@@ -33,23 +51,25 @@
 }
 
 .nav-right {
+  display: flex;
+  align-items: center;
   width: 50%;
 }
 
 .nav-list {
   display: flex;
   list-style: none;
+  width: 100%;
   justify-content: right;
 }
 
 .nav-list-item {
-  padding: 0 2em;
+  padding: 0 0 0 1.8em;
 }
 
 .link {
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
   cursor: pointer;
 }
 </style>
