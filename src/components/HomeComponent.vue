@@ -82,7 +82,6 @@
 
 .hero-bottom {
   height: 200px;
-  border: 1px solid #eee;
   width: 100%;
   display: flex;
   margin: 0 auto;
@@ -99,5 +98,6 @@
 
 .btn-link {
   color: white;
+  text-decoration: none;
 }
 </style>
