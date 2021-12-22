@@ -10,9 +10,10 @@
         <img :src="getImageUrl(section)" alt="image" class="bg-image" />
         <div class="menu-card-text">
           <router-link
+            @click="print(section.products)"
             :to="{
               name: 'ProductDetails',
-              params: { id: section.id, products: section.products[id] },
+              params: { id: section.id, products: section.products },
             }"
             class="menu-link"
           >
@@ -38,6 +39,9 @@ export default {
   methods: {
     getImageUrl(section) {
       return section.img;
+    },
+    print(products) {
+      console.log(products);
     },
   },
 };

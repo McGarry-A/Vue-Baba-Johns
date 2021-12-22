@@ -2,7 +2,7 @@
   <h1>Product Details</h1>
   <p>The section id is {{ id }}</p>
   <div v-for="(product, index) of products" :key="index">
-    <p>{{ product.name }}</p>
+    <p @click="print()">Product name: {{ product }}</p>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
       id: this.$route.params.id,
       products: this.$route.params.products,
     };
+  },
+  methods: {
+    print() {
+      console.log(this.products);
+    },
   },
 };
 </script>

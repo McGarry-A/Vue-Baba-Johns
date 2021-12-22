@@ -22,6 +22,12 @@ const data = [
         descritpion: "",
         img: "",
       },
+      {
+        name: "Starter",
+        price: "",
+        descritpion: "",
+        img: "",
+      },
     ],
   },
   {
