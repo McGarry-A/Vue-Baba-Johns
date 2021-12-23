@@ -1,14 +1,7 @@
 <template>
   <h1>Product Details</h1>
   <p>The section id is {{ id }}</p>
-  <div>
-    <FoodItem
-      v-for="(product, index) in products"
-      :key="index"
-      :name="product.name"
-      :description="product.description"
-    />
-  </div>
+  <FoodItem />
 </template>
 
 <script>
@@ -18,8 +11,24 @@ export default {
   data: function () {
     return {
       id: this.$route.params.id,
-      products: this.$route.params.products,
       name: String,
+      Products: [
+        {
+          name: "Starters",
+          description: "Yum",
+          id: 0,
+        },
+        {
+          name: "Mains",
+          description: "Filling",
+          id: 1,
+        },
+        {
+          name: "Desserts",
+          description: "Tasty",
+          id: 2,
+        },
+      ],
     };
   },
   methods: {

@@ -4,6 +4,7 @@ import Menu from "../views/Menu.vue";
 import Login from "../views/Login.vue";
 import Basket from "../views/Basket.vue";
 import ProductDetails from "../components/ProductDetails.vue";
+
 const routes = [
   {
     path: "/",
