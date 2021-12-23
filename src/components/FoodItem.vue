@@ -1,23 +1,20 @@
 <template>
-  <div v-for="product in products" :key="product.id">
-    <p>The product is {{ products.name }}</p>
-    <p>The product description is {{ products.description }}</p>
-    <p>The Key is {{ products.id }}</p>
+  <div>
+    <h1>The section name is {{ sectionName }}</h1>
+    <h1>
+      The product section we're looking for is {{ products[sectionName][0] }}
+    </h1>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    sectionName: String,
+    products: Object,
+  },
   data: function () {
-    return {
-      products: [
-        {
-          name: "Starters",
-          description: "Yum",
-          id: 0,
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>

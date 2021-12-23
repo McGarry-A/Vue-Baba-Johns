@@ -1,43 +1,34 @@
 <template>
-  <h1>Product Details</h1>
+  <!-- <h1>Product Details</h1>
   <p>The section id is {{ id }}</p>
-  <FoodItem />
+  <p>The section Name is {{ sectionName }}</p> -->
+  <FoodItem :products="products" :sectionName="sectionName" />
 </template>
 
 <script>
 import FoodItem from "./FoodItem.vue";
+import { products } from "../data";
 
 export default {
+  props: {
+    sectionName: {
+      type: String,
+      required: true,
+    },
+    id: String,
+  },
   data: function () {
     return {
-      id: this.$route.params.id,
       name: String,
-      Products: [
-        {
-          name: "Starters",
-          description: "Yum",
-          id: 0,
-        },
-        {
-          name: "Mains",
-          description: "Filling",
-          id: 1,
-        },
-        {
-          name: "Desserts",
-          description: "Tasty",
-          id: 2,
-        },
-      ],
+      products,
     };
-  },
-  methods: {
-    print() {
-      console.log(this.key);
-    },
   },
   components: {
     FoodItem,
+  },
+  mounted: function () {
+    console.log("Mounted!");
+    console.log(this.sectionName);
   },
 };
 </script>

@@ -7,7 +7,7 @@
           <router-link
             :to="{
               name: 'ProductDetails',
-              params: { id: section.id, products: section.products },
+              params: { id: section.id, sectionName: section.name },
             }"
             class="menu-link"
           >
@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import data from "../data.js";
+import { data } from "../data.js";
 
 export default {
   name: "Home",
   components: {},
-  data: () => {
+  data: function () {
     return {
       data,
     };

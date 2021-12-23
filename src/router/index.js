@@ -15,6 +15,7 @@ const routes = [
     path: "/menu",
     name: "Menu",
     component: Menu,
+    props: true,
   },
   {
     path: "/login",
@@ -30,9 +31,7 @@ const routes = [
     path: "/menu/:id",
     name: "ProductDetails",
     component: ProductDetails,
-    props: {
-      default: true,
-    },
+    props: true,
   },
 ];
 
