@@ -29,7 +29,9 @@ const routes = [
     path: "/menu/:id",
     name: "ProductDetails",
     component: ProductDetails,
-    props: true,
+    props: {
+      default: true,
+    },
   },
 ];
 

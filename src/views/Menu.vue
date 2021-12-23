@@ -1,16 +1,10 @@
 <template>
   <div class="menu">
-    <div
-      v-for="(section, index) of data"
-      :title="section.name"
-      :img="section.img"
-      :key="index"
-    >
+    <div v-for="(section, index) of data" :key="index">
       <div class="menu-card">
         <img :src="getImageUrl(section)" alt="image" class="bg-image" />
         <div class="menu-card-text">
           <router-link
-            @click="print(section.products)"
             :to="{
               name: 'ProductDetails',
               params: { id: section.id, products: section.products },

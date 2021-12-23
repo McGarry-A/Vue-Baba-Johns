@@ -16,18 +16,6 @@ const data = [
         descritpion: "YUM YUM",
         img: "RANDOM",
       },
-      {
-        name: "Starter",
-        price: "",
-        descritpion: "",
-        img: "",
-      },
-      {
-        name: "Starter",
-        price: "",
-        descritpion: "",
-        img: "",
-      },
     ],
   },
   {
