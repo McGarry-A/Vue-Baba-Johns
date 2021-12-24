@@ -42,6 +42,7 @@
   max-width: 1500px;
   margin: 0 auto;
   padding: 1em 0.5em;
+  background-color: whitesmoke;
 }
 
 .nav-left {
