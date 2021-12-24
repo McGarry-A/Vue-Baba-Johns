@@ -5,6 +5,10 @@
       <div v-for="(item, index) in basket" :key="index">
         <BasketItem />
       </div>
+      <div class="total-price">
+        <h4>Total Price</h4>
+        <h5>£100.00</h5>
+      </div>
       <button>Checkout</button>
     </div>
   </div>
@@ -60,8 +64,16 @@ button {
   border: none;
   font-size: 1.2rem;
   font-weight: bold;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 1em 2.2em;
 }
 </style>
