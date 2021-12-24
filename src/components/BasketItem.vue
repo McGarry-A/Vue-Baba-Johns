@@ -1,13 +1,13 @@
 <template>
   <div class="basket-item-container">
     <div>image</div>
-    <div>details</div>
+    <div>{{ name }}</div>
     <div class="quantity-container">
       <button>-</button>
-      <p id="quantity">Quantity</p>
+      <p id="quantity">{{ quantity }}</p>
       <button>+</button>
     </div>
-    <div>total price</div>
+    <div>{{ price }}</div>
     <button>x</button>
   </div>
 </template>
@@ -16,6 +16,22 @@
 export default {
   name: "BasketItem",
   data: function () {},
+  props: {
+    name: String,
+    price: String,
+    quantity: Number,
+  },
+  methods: {
+    removeItemFromBasket: function () {
+      return;
+    },
+    changeQuantity: function () {
+      return;
+    },
+    calculateTotalBasketPrice: function () {
+      return;
+    },
+  },
 };
 </script>
 
@@ -48,6 +64,6 @@ button {
   display: flex;
 }
 #quantity {
-  padding: 0 .5em;
+  padding: 0 0.5em;
 }
 </style>

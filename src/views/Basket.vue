@@ -2,12 +2,16 @@
   <div class="basket-container">
     <div class="basket">
       <h1>Your Basket</h1>
-      <div v-for="(item, index) in basket" :key="index" :>
-        <BasketItem />
+      <div v-for="(item, index) in basket" :key="index">
+        <BasketItem
+          :name="item.name"
+          :price="item.price"
+          :quantity="item.quantity"
+        />
       </div>
       <div class="total-price">
         <h4>Total Price</h4>
-        <h5>£100.00</h5>
+        <h5>{{ calculateTotalBasketPrice() }}</h5>
       </div>
       <button>Checkout</button>
     </div>
@@ -28,6 +32,15 @@ export default {
   },
   components: {
     BasketItem,
+  },
+  methods: {
+    calculateTotalBasketPrice: function () {
+      let totalPrice = 0;
+      for (let i = 0; i < basket.length; i++) {
+        totalPrice = +basket[i].price + totalPrice;
+      }
+      return totalPrice;
+    },
   },
 };
 </script>
