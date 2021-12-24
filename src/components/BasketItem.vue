@@ -1,5 +1,5 @@
 <template>
-  <div>MA NAME IS WHAT</div>
+  <div class="basket-item-container"></div>
 </template>
 
 <script>
@@ -9,4 +9,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.basket-item-container {
+  border: 1px solid #eee;
+  height: 100px;
+  width: 90%;
+  margin: 0.25em auto;
+}
+</style>
