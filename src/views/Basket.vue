@@ -2,7 +2,7 @@
   <div class="basket-container">
     <div class="basket">
       <h1>Your Basket</h1>
-      <div v-for="(item, index) in basket" :key="index">
+      <div v-for="(item, index) in basket" :key="index" :>
         <BasketItem />
       </div>
       <div class="total-price">
