@@ -1,35 +1,35 @@
 <template>
   <div class="basket-item-container">
     <div>image</div>
-    <div>{{ name }}</div>
+    <div>{{ item.name }}</div>
     <div class="quantity-container">
-      <button>-</button>
-      <p id="quantity">{{ quantity }}</p>
-      <button>+</button>
+      <button @click="changeQuantity('minus')">-</button>
+      <p id="quantity">{{ item.quantity }}</p>
+      <button @click="changeQuantity('add')">+</button>
     </div>
-    <div>{{ price }}</div>
-    <button>x</button>
+    <div>{{ item.price }}</div>
+    <button @click="removeItemFromBasket(this.index)">x</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "BasketItem",
-  data: function () {},
+  data: function () {
+    return {
+      newItem: this.item,
+    };
+  },
   props: {
-    name: String,
-    price: String,
-    quantity: Number,
+    item: Object,
+    index: Number,
+    removeItemFromBasket: Function,
   },
   methods: {
-    removeItemFromBasket: function () {
-      return;
-    },
-    changeQuantity: function () {
-      return;
-    },
-    calculateTotalBasketPrice: function () {
-      return;
+    changeQuantity: function (operation) {
+      operation === "add"
+        ? (this.newItem.quantity += 1)
+        : (this.newItem.quantity -= 1);
     },
   },
 };

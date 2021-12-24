@@ -2,11 +2,11 @@
   <div class="basket-container">
     <div class="basket">
       <h1>Your Basket</h1>
-      <div v-for="(item, index) in basket" :key="index">
+      <div v-for="(item, index) in getBasket()" :key="index">
         <BasketItem
-          :name="item.name"
-          :price="item.price"
-          :quantity="item.quantity"
+          :item="item"
+          :index="index"
+          :removeItemFromBasket="removeItemFromBasket"
         />
       </div>
       <div class="total-price">
@@ -28,6 +28,7 @@ export default {
   data: function () {
     return {
       basket,
+      newBasket: basket,
     };
   },
   components: {
@@ -40,6 +41,13 @@ export default {
         totalPrice = +basket[i].price + totalPrice;
       }
       return totalPrice;
+    },
+    removeItemFromBasket: function (firstIndex) {
+      this.newBasket.splice(firstIndex, 1);
+      return this.newBasket;
+    },
+    getBasket: function () {
+      return this.newBasket;
     },
   },
 };

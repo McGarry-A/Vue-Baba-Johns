@@ -19,16 +19,19 @@ export const data = [
 export const products = {
   starters: [
     {
+      id: 0,
       name: "fries",
       price: "2.99",
       description: "golden and crispy",
     },
     {
+      id: 1,
       name: "chicken wings",
       price: "3.99",
       description: "House special with buffalo sauce",
     },
     {
+      id: 2,
       name: "Veggie rolls",
       price: "2.99",
       description: "For the veggie lovers",
@@ -36,16 +39,19 @@ export const products = {
   ],
   mains: [
     {
+      id: 3,
       name: "main",
       price: "2.99",
       description: "golden and crispy",
     },
     {
+      id: 4,
       name: "main main",
       price: "3.99",
       description: "House special with buffalo sauce",
     },
     {
+      id: 5,
       name: "main",
       price: "2.99",
       description: "For the veggie lovers",
@@ -53,16 +59,19 @@ export const products = {
   ],
   desserts: [
     {
+      id: 6,
       name: "desserts",
       price: "2.99",
       description: "golden and crispy",
     },
     {
+      id: 7,
       name: "desserts",
       price: "3.99",
       description: "House special with buffalo sauce",
     },
     {
+      id: 8,
       name: "desserts",
       price: "2.99",
       description: "For the veggie lovers",
