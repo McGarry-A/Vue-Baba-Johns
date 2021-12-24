@@ -1,7 +1,4 @@
 <template>
-  <!-- <h1>Product Details</h1>
-  <p>The section id is {{ id }}</p>
-  <p>The section Name is {{ sectionName }}</p> -->
   <FoodItem :products="products" :sectionName="sectionName" />
 </template>
 
