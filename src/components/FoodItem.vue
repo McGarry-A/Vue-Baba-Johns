@@ -49,7 +49,7 @@ export default {
 
 .price {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-weight: lighter;
   margin-bottom: 10px;
 }

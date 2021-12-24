@@ -69,3 +69,21 @@ export const products = {
     },
   ],
 };
+
+export const basket = [
+  {
+    name: "fries",
+    price: "2.99",
+    quantity: 2,
+  },
+  {
+    name: "Pizza",
+    price: "9.99",
+    quantity: 2,
+  },
+  {
+    name: "dessert",
+    price: "4.99",
+    quantity: 2,
+  },
+];
