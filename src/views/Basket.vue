@@ -1,24 +1,26 @@
 <template>
   <div class="basket-container">
-    <div class="basket">
+    <div v-if="this.basket" class="basket">
       <h1>Your Basket</h1>
       <div v-for="(item, index) in getBasket()" :key="index">
-        <BasketItem
-          :item="item"
-          :index="index"
-          :removeItemFromBasket="removeItemFromBasket"
-        />
+        <div>
+          <BasketItem
+            :item="item"
+            :index="index"
+            :removeItemFromBasket="removeItemFromBasket"
+          />
+        </div>
+        <div class="total-price">
+          <h5>{{ calculateTotalBasketPrice() }}</h5>
+          <h4>Total Price</h4>
+          <button>Checkout</button>
+        </div>
       </div>
-      <div v-if="this.basket" class="total-price">
-        <h5>{{ calculateTotalBasketPrice() }}</h5>
-        <h4>Total Price</h4>
-        <button>Checkout</button>
-      </div>
-      <div v-else>
-        <h3 class="empty-basket">
-          Select something from the menu to add to your basket!
-        </h3>
-      </div>
+    </div>
+    <div v-else>
+      <h3 class="empty-basket">
+        Select something from the menu to add to your basket!
+      </h3>
     </div>
   </div>
 </template>
@@ -60,7 +62,9 @@ export default {
     },
   },
   mounted: () => {
-    console.log(this.basket);
+    if (this.basket.length > 0) {
+      console.log(this.basket);
+    }
   },
 };
 </script>

@@ -1,5 +1,9 @@
 <template>
-  <FoodItem :products="products" :sectionName="sectionName" />
+  <FoodItem
+    :products="products"
+    :sectionName="sectionName"
+    :addToBasket="addToBasket"
+  />
 </template>
 
 <script>
@@ -13,6 +17,7 @@ export default {
       required: true,
     },
     id: String,
+    basket: Array,
   },
   data: function () {
     return {
@@ -25,7 +30,12 @@ export default {
   },
   mounted: function () {
     console.log("Mounted!");
-    console.log(this.sectionName);
+    console.log(this.basket);
+  },
+  methods: {
+    addToBasket: function () {
+      console.log("added to basket!");
+    },
   },
 };
 </script>

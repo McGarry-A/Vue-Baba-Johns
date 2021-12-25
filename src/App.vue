@@ -9,7 +9,14 @@
           <router-link class="link" to="/">Home</router-link>
         </li>
         <li class="nav-list-item">
-          <router-link class="link" to="/menu">Menu</router-link>
+          <router-link
+            class="link"
+            :to="{
+              name: 'Menu',
+              params: { basket: this.basket },
+            }"
+            >Menu</router-link
+          >
         </li>
         <li class="nav-list-item">
           <router-link class="link" to="/login">Login</router-link>
@@ -35,7 +42,7 @@
 export default {
   data: function () {
     return {
-      basket: [{}],
+      basket: ["test"],
     };
   },
 };

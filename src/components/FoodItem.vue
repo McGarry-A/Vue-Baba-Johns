@@ -11,7 +11,7 @@
       <h2>{{ product.name }}</h2>
       <p class="price">£{{ product.price }}</p>
       <p>{{ product.description }}</p>
-      <button>Add to Basket</button>
+      <button @click="addToBasket()">Add to Basket</button>
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   props: {
     sectionName: String,
     products: Object,
+    addToBasket: Function,
   },
   data: function () {
     return {};

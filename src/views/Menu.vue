@@ -7,7 +7,11 @@
           <router-link
             :to="{
               name: 'ProductDetails',
-              params: { id: section.id, sectionName: section.name },
+              params: {
+                id: section.id,
+                sectionName: section.name,
+                basket: this.basket,
+              },
             }"
             class="menu-link"
           >
@@ -24,6 +28,9 @@ import { data } from "../data.js";
 
 export default {
   name: "Home",
+  props: {
+    basket: Array,
+  },
   components: {},
   data: function () {
     return {
