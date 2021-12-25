@@ -9,26 +9,35 @@
           :removeItemFromBasket="removeItemFromBasket"
         />
       </div>
-      <div class="total-price">
-        <h4>Total Price</h4>
+      <div v-if="this.basket" class="total-price">
         <h5>{{ calculateTotalBasketPrice() }}</h5>
+        <h4>Total Price</h4>
+        <button>Checkout</button>
       </div>
-      <button>Checkout</button>
+      <div v-else>
+        <h3 class="empty-basket">
+          Select something from the menu to add to your basket!
+        </h3>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { basket } from "../data.js";
+// import { basket } from "../data.js";
 import BasketItem from "../components/BasketItem.vue";
 
 export default {
   name: "Basket",
+  props: {
+    basket: {
+      type: Array,
+    },
+  },
   data: function () {
     return {
-      basket,
-      newBasket: basket,
+      newBasket: this.basket,
     };
   },
   components: {
@@ -37,8 +46,8 @@ export default {
   methods: {
     calculateTotalBasketPrice: function () {
       let totalPrice = 0;
-      for (let i = 0; i < basket.length; i++) {
-        totalPrice = +basket[i].price + totalPrice;
+      for (let i = 0; i < this.basket?.length; i++) {
+        totalPrice = +this.basket[i].price + totalPrice;
       }
       return totalPrice;
     },
@@ -49,6 +58,9 @@ export default {
     getBasket: function () {
       return this.newBasket;
     },
+  },
+  mounted: () => {
+    console.log(this.basket);
   },
 };
 </script>
@@ -96,5 +108,9 @@ button {
   flex-direction: column;
   text-align: right;
   margin: 1em 2.2em;
+}
+.empty-basket {
+  text-align: center;
+  font-weight: lighter;
 }
 </style>

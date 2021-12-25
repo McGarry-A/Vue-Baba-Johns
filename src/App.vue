@@ -15,7 +15,14 @@
           <router-link class="link" to="/login">Login</router-link>
         </li>
         <li class="nav-list-item">
-          <router-link class="link" to="/basket">Basket</router-link>
+          <router-link
+            class="link"
+            :to="{
+              name: 'Basket',
+              params: { basket: this.basket },
+            }"
+            >Basket</router-link
+          >
         </li>
       </ul>
     </nav>
@@ -23,6 +30,16 @@
   <router-view />
   <footer></footer>
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      basket: [{}],
+    };
+  },
+};
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
