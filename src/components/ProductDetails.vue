@@ -37,6 +37,7 @@ export default {
         price: item.price,
       });
       console.log(this.basket);
+      console.log(this.newBasket);
     },
   },
 };
