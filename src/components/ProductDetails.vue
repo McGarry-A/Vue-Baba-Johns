@@ -23,18 +23,20 @@ export default {
     return {
       name: String,
       products,
+      newBasket: this.basket,
     };
   },
   components: {
     FoodItem,
   },
-  mounted: function () {
-    console.log("Mounted!");
-    console.log(this.basket);
-  },
   methods: {
-    addToBasket: function () {
+    addToBasket: function (item) {
       console.log("added to basket!");
+      this.newBasket.push({
+        name: item.name,
+        price: item.price,
+      });
+      console.log(this.basket);
     },
   },
 };

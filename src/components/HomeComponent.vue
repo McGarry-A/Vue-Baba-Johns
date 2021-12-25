@@ -10,7 +10,14 @@
         <h1>Baba Johns, The Best Pizza in Town</h1>
         <div class="button-div">
           <button class="btn">
-            <router-link class="btn-link" to="/menu">Menu</router-link>
+            <router-link
+              class="btn-link"
+              :to="{
+                name: 'Menu',
+                params: { basket: this.basket },
+              }"
+              >Menu</router-link
+            >
           </button>
           <button class="btn">
             <router-link class="btn-link" to="/login">Register</router-link>
@@ -28,7 +35,14 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: {
+    basket: Array,
+  },
+};
+</script>
+
 
 <style>
 .home-component {

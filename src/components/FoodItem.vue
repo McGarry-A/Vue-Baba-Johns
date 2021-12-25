@@ -11,7 +11,7 @@
       <h2>{{ product.name }}</h2>
       <p class="price">£{{ product.price }}</p>
       <p>{{ product.description }}</p>
-      <button @click="addToBasket()">Add to Basket</button>
+      <button @click="addToBasket(product)">Add to Basket</button>
     </div>
   </div>
 </template>

@@ -6,7 +6,14 @@
     <nav class="nav-right">
       <ul class="nav-list">
         <li class="nav-list-item">
-          <router-link class="link" to="/">Home</router-link>
+          <router-link
+            class="link"
+            :to="{
+              name: 'Home',
+              params: { basket: this.basket },
+            }"
+            >Home</router-link
+          >
         </li>
         <li class="nav-list-item">
           <router-link
@@ -42,8 +49,11 @@
 export default {
   data: function () {
     return {
-      basket: ["test"],
+      basket: [],
     };
+  },
+  mounted() {
+    console.log(this.basket);
   },
 };
 </script>
