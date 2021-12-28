@@ -3,9 +3,9 @@
     <div class="login-container">
       <h3>Welcome Back</h3>
       <h2>Log in to Your Account</h2>
-      <input placeholder="Username" />
-      <input placeholder="Password" />
-      <button>Log in</button>
+      <input v-model="username" placeholder="Username" />
+      <input v-model="password" placeholder="Password" />
+      <button @click="fetchLogin">Log in</button>
       <p>
         Dont have an account?
         <span @click="() => (login = !login)">Register</span>
@@ -37,7 +37,38 @@ export default {
   data: function () {
     return {
       login: true,
+      username: "",
+      email: "",
+      password: "",
     };
+  },
+  methods: {
+    async fetchLogin() {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+      });
+
+      if (response.status === 200) {
+        console.log("post req made");
+      }
+    },
+    async createAccount() {
+      const response = await fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8080",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          username: this.username,
+          password: this.password,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+    },
   },
 };
 </script>
