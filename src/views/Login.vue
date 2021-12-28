@@ -1,12 +1,15 @@
 <template>
-  <div v-if="1 === 1" class="login-page">
+  <div v-if="login" class="login-page">
     <div class="login-container">
       <h3>Welcome Back</h3>
       <h2>Log in to Your Account</h2>
       <input placeholder="Username" />
       <input placeholder="Password" />
       <button>Log in</button>
-      <p>Dont have an account? <span>Register</span></p>
+      <p>
+        Dont have an account?
+        <span @click="() => (login = !login)">Register</span>
+      </p>
     </div>
   </div>
   <div v-else class="login-page">
@@ -17,7 +20,11 @@
       <input placeholder="Username" />
       <input placeholder="Password" />
       <button>Sign up</button>
-      <p>Already have an account?<span> Login</span></p>
+      <p>
+        Already have an account?<span @click="() => (login = !login)"
+          >Login</span
+        >
+      </p>
     </div>
   </div>
 </template>
@@ -27,6 +34,11 @@
 export default {
   name: "Login",
   components: {},
+  data: function () {
+    return {
+      login: true,
+    };
+  },
 };
 </script>
 
