@@ -14,7 +14,7 @@ export const fetchLogin = async (username, password) => {
     return data.user;
   } catch (e) {
     console.log(e);
-    console.log(`failed at fetch login`);
+    return false;
   }
 };
 

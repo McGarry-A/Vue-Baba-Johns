@@ -1,16 +1,17 @@
 import { computed, reactive } from "vue";
 import { fetchLogin } from "./index";
 
-const state = reactive({
+export const state = reactive({
+  email: "",
   username: "",
   error: "",
 });
 
-const getters = reactive({
+export const getters = reactive({
   isLoggedIn: computed(() => state.username !== ""),
 });
 
-const actions = {
+export const actions = {
   // async getUser() {
   //   const user = await getUser();
   //   if (user == null) return;
@@ -22,11 +23,13 @@ const actions = {
     try {
       const user = await fetchLogin(username, password);
       console.log(user);
-      if (user === null) {
+
+      if (user === null || user === undefined || !user) {
         state.error = "could not find user";
         return false;
       }
       state.username = user.username;
+      state.email = user.email;
       state.error = "";
       return true;
     } catch (e) {
@@ -35,8 +38,6 @@ const actions = {
     }
   },
   async logout() {
-    state.username = "";
+    (state.username = ""), (state.email = "");
   },
 };
-
-export default { getters, state, ...actions };

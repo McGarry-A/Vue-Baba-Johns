@@ -32,15 +32,24 @@
       </div>
     </div>
   </form>
+  <div v-if="state.error">{{ state.error }}</div>
 </template>
 
 <script>
 import { defineComponent, reactive } from "@vue/runtime-core";
-import userStore from "../utils/user";
+import { actions, state } from "../utils/user";
+import { useRouter } from "vue-router";
 // @ is an alias to /src
 export default defineComponent({
   name: "Login",
   setup() {
+    const router = useRouter();
+
+    const redirectToMenu = () => {
+      router.push({
+        name: "Menu",
+      });
+    };
     const form = reactive({
       username: "",
       password: "",
@@ -48,14 +57,16 @@ export default defineComponent({
 
     const login = reactive({ login: true });
 
-    const onSubmit = () => {
-      userStore.login(form.username, form.password);
-      console.log(userStore);
+    const onSubmit = async () => {
+      const isLoggedIn = await actions.login(form.username, form.password);
+      if (isLoggedIn) {
+        redirectToMenu();
+      }
       form.username = "";
       form.password = "";
     };
 
-    return { form, onSubmit, login };
+    return { form, onSubmit, login, state, actions };
   },
 });
 </script>
@@ -114,5 +125,15 @@ span {
   font-weight: bold;
   color: red;
   cursor: pointer;
+}
+
+router-link {
+  color: red;
+}
+.continue {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
 }
 </style>
