@@ -1,49 +1,62 @@
 <template>
-  <div v-if="login" class="login-page">
-    <div class="login-container">
-      <h3>Welcome Back</h3>
-      <h2>Log in to Your Account</h2>
-      <input v-model="username" placeholder="Username" />
-      <input v-model="password" placeholder="Password" />
-      <button @click="fetchLogin">Log in</button>
-      <p>
-        Dont have an account?
-        <span @click="() => (login = !login)">Register</span>
-      </p>
+  <form v-if="login.login" action="" @submit.prevent="onSubmit">
+    <div class="login-page">
+      <div class="login-container">
+        <h3>Welcome Back</h3>
+        <h2>Log in to Your Account</h2>
+        <input v-model="form.username" placeholder="Username" />
+        <input v-model="form.password" placeholder="Password" />
+        <button type="submit">Log in</button>
+        <p>
+          Dont have an account?
+          <span @click="() => (login.login = !login.login)">Register</span>
+        </p>
+      </div>
     </div>
-  </div>
-  <div v-else class="login-page">
-    <div class="login-container">
-      <h3>Welcome to Baba Johns</h3>
-      <h2>Sign up for your Account</h2>
-      <input placeholder="Email" />
-      <input placeholder="Username" />
-      <input placeholder="Password" />
-      <button>Sign up</button>
-      <p>
-        Already have an account?<span @click="() => (login = !login)"
-          >Login</span
-        >
-      </p>
+  </form>
+  <form v-else action="">
+    <div class="login-page">
+      <div class="login-container">
+        <h3>Welcome to Baba Johns</h3>
+        <h2>Sign up for your Account</h2>
+        <input placeholder="Email" />
+        <input placeholder="Username" />
+        <input placeholder="Password" />
+        <button>Sign up</button>
+        <p>
+          Already have an account?<span
+            @click="() => (login.login = !login.login)"
+            >Login</span
+          >
+        </p>
+      </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
+import { defineComponent, reactive } from "@vue/runtime-core";
+import userStore from "../utils/user";
 // @ is an alias to /src
-export default {
+export default defineComponent({
   name: "Login",
-  components: {},
-  data: function () {
-    return {
-      login: true,
+  setup() {
+    const form = reactive({
       username: "",
-      email: "",
       password: "",
+    });
+
+    const login = reactive({ login: true });
+
+    const onSubmit = () => {
+      userStore.login(form.username, form.password);
+      form.username = "";
+      form.password = "";
     };
+
+    return { form, onSubmit, login };
   },
-  methods: {},
-};
+});
 </script>
 
 <style scoped>

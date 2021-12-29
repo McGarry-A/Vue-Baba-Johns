@@ -1,14 +1,23 @@
-const fetchLogin = async () => {
-  const response = await fetch("http://localhost:3000/login", {
-    method: "POST",
-  });
+export const fetchLogin = async (username, password) => {
+  try {
+    console.log(`making a post request with ${username} and ${password}`);
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+    });
 
-  if (response.status === 200) {
-    console.log("post req made");
+    const data = await response.json();
+    return data.find(
+      (el) => el.password === password && el.username === username
+    );
+  } catch (e) {
+    console.log(e);
+    console.log(`failed at fetch login`);
   }
 };
 
-const createAccount = async () => {
+export const getUser = async () => {};
+
+export const createAccount = async () => {
   const response = await fetch("http://localhost:3000/user", {
     method: "POST",
     headers: {
@@ -22,10 +31,8 @@ const createAccount = async () => {
   });
 
   const data = await response.json();
-  console.log(data);
+  return data;
 };
 
-const fetchBasket = async () => {}
-const updateBasket = async () => {}
-
-export default { fetchLogin, createAccount };
+// const fetchBasket = async () => {}
+// const updateBasket = async () => {}
