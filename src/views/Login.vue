@@ -50,6 +50,7 @@ export default defineComponent({
 
     const onSubmit = () => {
       userStore.login(form.username, form.password);
+      console.log(userStore);
       form.username = "";
       form.password = "";
     };

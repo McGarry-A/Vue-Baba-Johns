@@ -1,8 +1,7 @@
 import { computed, reactive } from "vue";
-import { fetchLogin, getUser } from "./index";
+import { fetchLogin } from "./index";
 
 const state = reactive({
-  name: "",
   username: "",
   error: "",
 });
@@ -12,27 +11,31 @@ const getters = reactive({
 });
 
 const actions = {
-  async getUser() {
-    const user = await getUser();
-    if (user == null) return;
+  // async getUser() {
+  //   const user = await getUser();
+  //   if (user == null) return;
 
-    state.name = user.name;
-    state.username = user.username;
-  },
+  //   state.name = user.name;
+  //   state.username = user.username;
+  // },
   async login(username, password) {
-    const user = await fetchLogin(username, password);
-    if (user === null) {
-      state.error = "could not find user";
+    try {
+      const user = await fetchLogin(username, password);
+      console.log(user);
+      if (user === null) {
+        state.error = "could not find user";
+        return false;
+      }
+      state.username = user.username;
+      state.error = "";
+      return true;
+    } catch (e) {
+      console.log(e);
       return false;
     }
-
-    state.name = user.name;
-    state.username = user.username;
-    state.error = "";
-    return true;
   },
   async logout() {
-    (state.name = ""), (state.username = "");
+    state.username = "";
   },
 };
 

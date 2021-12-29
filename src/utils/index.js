@@ -1,14 +1,17 @@
 export const fetchLogin = async (username, password) => {
   try {
-    console.log(`making a post request with ${username} and ${password}`);
+    console.log(`${username} ${password}`);
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
     });
 
     const data = await response.json();
-    return data.find(
-      (el) => el.password === password && el.username === username
-    );
+    return data.user;
   } catch (e) {
     console.log(e);
     console.log(`failed at fetch login`);
