@@ -19,9 +19,9 @@
       <div class="login-container">
         <h3>Welcome to Baba Johns</h3>
         <h2>Sign up for your Account</h2>
-        <input placeholder="Email" v-model="form.email" />
-        <input placeholder="Username" v-model="form.username" />
-        <input placeholder="Password" v-model="form.password" />
+        <input placeholder="Email" v-model="registerForm.email" />
+        <input placeholder="Username" v-model="registerForm.username" />
+        <input placeholder="Password" v-model="registerForm.password" />
         <button type="submit">Sign up</button>
         <p>
           Already have an account?<span
@@ -83,7 +83,7 @@ export default defineComponent({
       }
     };
 
-    return { form, onSubmit, login, state, actions, register };
+    return { form, onSubmit, login, state, actions, register, registerForm };
   },
 });
 </script>

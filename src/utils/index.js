@@ -34,6 +34,8 @@ export const createAccount = async (email, username, password) => {
   });
 
   const data = await response.json();
+  console.log(`Create account data ----`);
+  console.log(data);
   return data;
 };
 

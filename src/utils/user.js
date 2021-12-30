@@ -46,8 +46,8 @@ export const actions = {
       if (newUser === null || newUser === undefined) {
         state.error = "Could not create new user";
       }
-      state.username = newUser.username;
-      state.email = newUser.email;
+      state.username = newUser.newUser.username;
+      state.email = newUser.newUser.email;
       state.error = "";
       return true;
     } catch (e) {
