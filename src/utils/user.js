@@ -38,7 +38,8 @@ export const actions = {
     }
   },
   async logout() {
-    (state.username = ""), (state.email = "");
+    state.username = "";
+    state.email = "";
   },
   async register(username, email, password) {
     try {

@@ -43,6 +43,9 @@
             >Basket</router-link
           >
         </li>
+        <li v-if="state.username">
+          <button class="logout" @click="actions.logout">Logout</button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -51,12 +54,14 @@
 </template>
 
 <script>
-import { state } from "./utils/user";
+import { state, actions } from "./utils/user";
+
 export default {
   data: function () {
     return {
       basket: [],
       state,
+      actions,
     };
   },
   mounted() {
@@ -83,7 +88,6 @@ export default {
   max-width: 1500px;
   margin: 0 auto;
   padding: 1em 0.5em;
-  background-color: whitesmoke;
 }
 
 .nav-left {
@@ -103,6 +107,7 @@ export default {
   list-style: none;
   width: 100%;
   justify-content: right;
+  align-items: center;
 }
 
 .nav-list-item {
@@ -112,6 +117,16 @@ export default {
 .link {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+.logout {
+  background: red;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  margin: 0 0 0 1rem;
+  border-radius: 5px;
   cursor: pointer;
 }
 </style>
