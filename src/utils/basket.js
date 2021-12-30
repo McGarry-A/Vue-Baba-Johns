@@ -7,7 +7,18 @@ export const getters = reactive({
 });
 
 export const basketActions = {
-  addToBakset() {},
-  deleteFromBasket() {},
-  changeQuantity() {},
+  calculateTotalBasketPrice: function () {
+    let totalPrice = 0;
+    for (let i = 0; i < basketState?.length; i++) {
+      totalPrice = +basketState[i].price + totalPrice;
+    }
+    return totalPrice;
+  },
+  removeItemFromBasket: function (firstIndex) {
+    basketState.splice(firstIndex, 1);
+    return basketState;
+  },
+  addToBakset(item) {
+    basketState.push(item);
+  },
 };

@@ -45,22 +45,7 @@ export default {
   components: {
     BasketItem,
   },
-  methods: {
-    calculateTotalBasketPrice: function () {
-      let totalPrice = 0;
-      for (let i = 0; i < this.basket?.length; i++) {
-        totalPrice = +this.basket[i].price + totalPrice;
-      }
-      return totalPrice;
-    },
-    removeItemFromBasket: function (firstIndex) {
-      this.newBasket.splice(firstIndex, 1);
-      return this.newBasket;
-    },
-    getBasket: function () {
-      return this.newBasket;
-    },
-  },
+  methods: {},
   mounted: () => {
     if (this.basket.length > 0) {
       console.log(this.basket);
