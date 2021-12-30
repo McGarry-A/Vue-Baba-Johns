@@ -14,15 +14,15 @@
       </div>
     </div>
   </form>
-  <form v-else action="">
+  <form v-else action="" @submit.prevent="register">
     <div class="login-page">
       <div class="login-container">
         <h3>Welcome to Baba Johns</h3>
         <h2>Sign up for your Account</h2>
-        <input placeholder="Email" />
-        <input placeholder="Username" />
-        <input placeholder="Password" />
-        <button>Sign up</button>
+        <input placeholder="Email" v-model="form.email" />
+        <input placeholder="Username" v-model="form.username" />
+        <input placeholder="Password" v-model="form.password" />
+        <button type="submit">Sign up</button>
         <p>
           Already have an account?<span
             @click="() => (login.login = !login.login)"
@@ -55,6 +55,11 @@ export default defineComponent({
       password: "",
     });
 
+    const registerForm = reactive({
+      username: "",
+      email: "",
+      password: "",
+    });
     const login = reactive({ login: true });
 
     const onSubmit = async () => {
@@ -66,7 +71,19 @@ export default defineComponent({
       form.password = "";
     };
 
-    return { form, onSubmit, login, state, actions };
+    const register = async () => {
+      const didRegister = await actions.register(
+        registerForm.username,
+        registerForm.email,
+        registerForm.password
+      );
+
+      if (didRegister) {
+        redirectToMenu();
+      }
+    };
+
+    return { form, onSubmit, login, state, actions, register };
   },
 });
 </script>

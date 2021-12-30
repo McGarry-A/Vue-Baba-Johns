@@ -20,16 +20,16 @@ export const fetchLogin = async (username, password) => {
 
 export const getUser = async () => {};
 
-export const createAccount = async () => {
+export const createAccount = async (email, username, password) => {
   const response = await fetch("http://localhost:3000/user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: this.email,
-      username: this.username,
-      password: this.password,
+      email: email,
+      username: username,
+      password: password,
     }),
   });
 

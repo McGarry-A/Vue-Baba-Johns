@@ -1,5 +1,5 @@
 import { computed, reactive } from "vue";
-import { fetchLogin } from "./index";
+import { createAccount, fetchLogin } from "./index";
 
 export const state = reactive({
   email: "",
@@ -39,5 +39,19 @@ export const actions = {
   },
   async logout() {
     (state.username = ""), (state.email = "");
+  },
+  async register(username, email, password) {
+    try {
+      const newUser = await createAccount(username, email, password);
+      if (newUser === null || newUser === undefined) {
+        state.error = "Could not create new user";
+      }
+      state.username = newUser.username;
+      state.email = newUser.email;
+      state.error = "";
+      return true;
+    } catch (e) {
+      console.log(e);
+    }
   },
 };
