@@ -19,7 +19,16 @@ export const basketActions = {
     return basketState;
   },
   addToBakset(item) {
-    console.log(`${item} added to basket`);
-    basketState.push(item);
+    if (basketState.filter((el) => el.id === item.id).length === 0) {
+      basketState.push(item);
+      item.quantity = 1;
+    } else {
+      basketState.forEach((el) => {
+        if (el.id === item.id) {
+          el.quantity = el.quantity + 1;
+          console.log(el.quantity);
+        }
+      });
+    }
   },
 };
