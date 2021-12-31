@@ -7,7 +7,7 @@
       <p id="quantity">{{ item.quantity }}</p>
       <button @click="changeQuantity('add')">+</button>
     </div>
-    <div>{{ item.price }}</div>
+    <div>{{ item.price * item.quantity }}</div>
     <button @click="callRemoveItemFromBasket(this.index)">x</button>
   </div>
 </template>
