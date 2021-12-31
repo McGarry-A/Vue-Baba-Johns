@@ -29,17 +29,7 @@ export default {
   components: {
     FoodItem,
   },
-  methods: {
-    addToBasket: function (item) {
-      console.log("added to basket!");
-      this.newBasket.push({
-        name: item.name,
-        price: item.price,
-      });
-      console.log(this.basket);
-      console.log(this.newBasket);
-    },
-  },
+  methods: {},
 };
 </script>
 

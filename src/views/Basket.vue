@@ -4,14 +4,10 @@
       <h1>Your Basket</h1>
       <div v-for="(item, index) in basketState" :key="index">
         <div>
-          <BasketItem
-            :item="item"
-            :index="index"
-            :removeItemFromBasket="removeItemFromBasket"
-          />
+          <BasketItem :item="item" :index="index" />
         </div>
         <div class="total-price">
-          <h5>{{ calculateTotalBasketPrice }}</h5>
+          <h5>{{ callCalculateTotalBasketPrice() }}</h5>
           <h4>Total Price</h4>
           <button>Checkout</button>
         </div>
@@ -48,7 +44,11 @@ export default {
   components: {
     BasketItem,
   },
-  methods: {},
+  methods: {
+    callCalculateTotalBasketPrice() {
+      basketActions.calculateTotalBasketPrice();
+    },
+  },
 };
 </script>
 

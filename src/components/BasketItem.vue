@@ -8,16 +8,19 @@
       <button @click="changeQuantity('add')">+</button>
     </div>
     <div>{{ item.price }}</div>
-    <button @click="removeItemFromBasket(this.index)">x</button>
+    <button @click="callRemoveItemFromBasket(this.index)">x</button>
   </div>
 </template>
 
 <script>
+import { basketState, basketActions } from "../utils/basket";
 export default {
   name: "BasketItem",
   data: function () {
     return {
       newItem: this.item,
+      basketState,
+      basketActions,
     };
   },
   props: {
@@ -30,6 +33,9 @@ export default {
       operation === "add"
         ? (this.newItem.quantity += 1)
         : (this.newItem.quantity -= 1);
+    },
+    callRemoveItemFromBasket(index) {
+      basketActions.removeItemFromBasket(index);
     },
   },
 };
