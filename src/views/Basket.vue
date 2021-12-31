@@ -3,14 +3,12 @@
     <div v-if="basketState.length > 0" class="basket">
       <h1>Your Basket</h1>
       <div v-for="(item, index) in basketState" :key="index">
-        <div>
-          <BasketItem :item="item" :index="index" />
-        </div>
-        <div class="total-price">
-          <h5>{{ callCalculateTotalBasketPrice() }}</h5>
-          <h4>Total Price</h4>
-          <button>Checkout</button>
-        </div>
+        <BasketItem :item="item" :index="index" />
+      </div>
+      <div class="total-price">
+        <h5>{{ calculateTotalBasketPrice() }}</h5>
+        <h4>Total Price</h4>
+        <button>Checkout</button>
       </div>
     </div>
     <div v-else>
@@ -45,8 +43,13 @@ export default {
     BasketItem,
   },
   methods: {
-    callCalculateTotalBasketPrice() {
-      basketActions.calculateTotalBasketPrice();
+    calculateTotalBasketPrice: function () {
+      let totalPrice = 0;
+      for (let i = 0; i < basketState?.length; i++) {
+        totalPrice =
+          basketState[i].price * basketState[i].quantity + totalPrice;
+      }
+      return totalPrice;
     },
   },
 };
