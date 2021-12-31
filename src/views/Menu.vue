@@ -41,12 +41,6 @@ export default {
     getImageUrl(section) {
       return section.img;
     },
-    print(products) {
-      console.log(products);
-    },
-  },
-  mounted() {
-    console.log(`the basket is ${this.basket}`);
   },
 };
 </script>
