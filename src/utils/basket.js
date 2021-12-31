@@ -19,6 +19,7 @@ export const basketActions = {
     return basketState;
   },
   addToBakset(item) {
+    console.log(`${item} added to basket`);
     basketState.push(item);
   },
 };

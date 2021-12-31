@@ -1,8 +1,8 @@
 <template>
   <div class="basket-container">
-    <div v-if="this.basket" class="basket">
+    <div v-if="basketState.length > 0" class="basket">
       <h1>Your Basket</h1>
-      <div v-for="(item, index) in getBasket()" :key="index">
+      <div v-for="(item, index) in basketState" :key="index">
         <div>
           <BasketItem
             :item="item"
@@ -11,7 +11,7 @@
           />
         </div>
         <div class="total-price">
-          <h5>{{ calculateTotalBasketPrice() }}</h5>
+          <h5>{{ calculateTotalBasketPrice }}</h5>
           <h4>Total Price</h4>
           <button>Checkout</button>
         </div>
@@ -28,6 +28,7 @@
 <script>
 // @ is an alias to /src
 // import { basket } from "../data.js";
+import { basketState, basketActions } from "../utils/basket";
 import BasketItem from "../components/BasketItem.vue";
 
 export default {
@@ -40,17 +41,14 @@ export default {
   data: function () {
     return {
       newBasket: this.basket,
+      basketState,
+      basketActions,
     };
   },
   components: {
     BasketItem,
   },
   methods: {},
-  mounted: () => {
-    if (this.basket.length > 0) {
-      console.log(this.basket);
-    }
-  },
 };
 </script>
 

@@ -11,12 +11,13 @@
       <h2>{{ product.name }}</h2>
       <p class="price">£{{ product.price }}</p>
       <p>{{ product.description }}</p>
-      <button @click="addToBasket(product)">Add to Basket</button>
+      <button @click="callAddToBasket(product)">Add to Basket</button>
     </div>
   </div>
 </template>
 
 <script>
+import { basketActions } from "../utils/basket";
 export default {
   props: {
     sectionName: String,
@@ -24,7 +25,14 @@ export default {
     addToBasket: Function,
   },
   data: function () {
-    return {};
+    return {
+      basketActions,
+    };
+  },
+  methods: {
+    callAddToBasket(item) {
+      basketActions.addToBakset(item);
+    },
   },
 };
 </script>
