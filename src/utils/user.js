@@ -31,8 +31,11 @@ export const actions = {
       }
       state.username = user.username;
       state.email = user.email;
-      basketState.push(user.basket);
-      console.log(basketState);
+
+      for (let i = 0; i < user.basket.length; i++) {
+        basketState.push(user.basket[i]);
+      }
+
       state.error = "";
       return true;
     } catch (e) {
