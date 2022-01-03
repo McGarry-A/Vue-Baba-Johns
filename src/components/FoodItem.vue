@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1 id="section-title">{{ sectionName }}</h1>
+    <h1 id="section-title">
+      {{ sectionName }}
+    </h1>
   </header>
   <div class="products-section">
     <div
@@ -8,9 +10,12 @@
       :key="index"
       class="product-card"
     >
-      <h2>{{ product.name }}</h2>
-      <p class="price">£{{ product.price }}</p>
-      <p>{{ product.description }}</p>
+      <img :src="product.img" alt="product-image" class="product-image" />
+      <div class="padding">
+        <h2>{{ product.name }}</h2>
+        <p class="price">£{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+      </div>
       <button @click="callAddToBasket(product)">Add to Basket</button>
     </div>
   </div>
@@ -32,7 +37,7 @@ export default {
   methods: {
     callAddToBasket(item) {
       basketActions.addToBakset(item);
-    },
+    }
   },
 };
 </script>
@@ -43,15 +48,19 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 2em;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 0 auto;
 }
+
 .product-card {
   display: flex;
   flex-direction: column;
   border: 1px solid #eee;
   height: 400px;
-  width: 300px;
-  margin: 0 1em;
-  padding: 2em 1em;
+  width: 330px;
+  margin: 0.5em 1em;
+  padding: 0em 0em;
   position: relative;
   border-radius: 10px;
 }
@@ -63,6 +72,17 @@ export default {
   margin-bottom: 10px;
 }
 
+.product-image {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.padding {
+  padding: 0 1em;
+}
 button {
   display: flex;
   justify-content: center;
