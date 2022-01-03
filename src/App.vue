@@ -55,19 +55,20 @@
 
 <script>
 import { state, actions } from "./utils/user";
-import { saveBasket } from "./utils";
+import { basketState } from "./utils/basket";
 export default {
   data: function () {
     return {
       basket: [],
       state,
       actions,
-      saveBasket,
+      basketState,
     };
   },
   methods: {
     logout() {
-      actions.logout;
+      actions.logout();
+      basketState.splice(0, basketState.length);
     },
   },
 };

@@ -31,7 +31,8 @@ export const actions = {
       }
       state.username = user.username;
       state.email = user.email;
-      basketState = user.basket;
+      basketState.push(user.basket);
+      console.log(basketState);
       state.error = "";
       return true;
     } catch (e) {
@@ -43,7 +44,6 @@ export const actions = {
     await saveBasket(state.username, basketState);
     state.username = "";
     state.email = "";
-    basketState = [];
   },
   async register(username, email, password) {
     try {

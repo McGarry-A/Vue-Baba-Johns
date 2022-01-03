@@ -6,7 +6,7 @@
         <BasketItem :item="item" :index="index" />
       </div>
       <div class="total-price">
-        <h5>{{ calculateTotalBasketPrice() }}</h5>
+        <h5>£{{ calculateTotalBasketPrice() }}</h5>
         <h4>Total Price</h4>
         <button>Checkout</button>
       </div>
@@ -49,7 +49,7 @@ export default {
         totalPrice =
           basketState[i].price * basketState[i].quantity + totalPrice;
       }
-      return totalPrice;
+      return totalPrice.toFixed(2);
     },
   },
 };

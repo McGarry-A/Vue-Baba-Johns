@@ -40,7 +40,7 @@ export const createAccount = async (email, username, password) => {
 };
 
 export const saveBasket = async (username, basket) => {
-  const response = await fetch("http://localhost:8080/basket", {
+  const response = await fetch("http://localhost:3000/basket", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -50,4 +50,4 @@ export const saveBasket = async (username, basket) => {
   });
   const data = response.json();
   console.log(data);
-}
+};
