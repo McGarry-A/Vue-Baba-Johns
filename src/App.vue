@@ -44,7 +44,7 @@
           >
         </li>
         <li v-if="state.username">
-          <button class="logout" @click="actions.logout">Logout</button>
+          <button class="logout" @click="logout">Logout</button>
         </li>
       </ul>
     </nav>
@@ -55,17 +55,20 @@
 
 <script>
 import { state, actions } from "./utils/user";
-
+import { saveBasket } from "./utils";
 export default {
   data: function () {
     return {
       basket: [],
       state,
       actions,
+      saveBasket,
     };
   },
-  mounted() {
-    console.log(this.basket);
+  methods: {
+    logout() {
+      actions.logout;
+    },
   },
 };
 </script>

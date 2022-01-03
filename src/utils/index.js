@@ -39,5 +39,15 @@ export const createAccount = async (email, username, password) => {
   return data;
 };
 
-// const fetchBasket = async () => {}
-// const updateBasket = async () => {}
+export const saveBasket = async (username, basket) => {
+  const response = await fetch("http://localhost:8080/basket", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: username,
+      basket: basket,
+    }),
+  });
+  const data = response.json();
+  console.log(data);
+}

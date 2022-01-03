@@ -1,5 +1,6 @@
 import { computed, reactive } from "vue";
-import { createAccount, fetchLogin } from "./index";
+import { basketState } from "./basket";
+import { createAccount, fetchLogin, saveBasket } from "./index";
 
 export const state = reactive({
   email: "",
@@ -30,6 +31,7 @@ export const actions = {
       }
       state.username = user.username;
       state.email = user.email;
+      basketState = user.basket;
       state.error = "";
       return true;
     } catch (e) {
@@ -38,8 +40,10 @@ export const actions = {
     }
   },
   async logout() {
+    await saveBasket(state.username, basketState);
     state.username = "";
     state.email = "";
+    basketState = [];
   },
   async register(username, email, password) {
     try {
