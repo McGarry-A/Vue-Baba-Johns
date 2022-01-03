@@ -19,6 +19,11 @@
       <button @click="callAddToBasket(product)">Add to Basket</button>
     </div>
   </div>
+  <div class="back">
+    <button class="back-to-menu-button" @click="goToMenu()">
+      Back to Menu
+    </button>
+  </div>
 </template>
 
 <script>
@@ -37,7 +42,10 @@ export default {
   methods: {
     callAddToBasket(item) {
       basketActions.addToBakset(item);
-    }
+    },
+    goToMenu() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>
@@ -104,5 +112,18 @@ header {
 }
 #section-title {
   margin: 2em 0;
+}
+
+.back {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.back-to-menu-button {
+  background: white;
+  color: red;
+  border: 1px solid red;
 }
 </style>
