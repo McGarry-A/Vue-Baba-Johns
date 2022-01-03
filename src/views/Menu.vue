@@ -30,9 +30,6 @@ import { data } from "../data.js";
 import { capitaliseFirstLetter } from "../utils/index";
 export default {
   name: "Home",
-  props: {
-    basket: Array,
-  },
   components: {},
   data: function () {
     return {

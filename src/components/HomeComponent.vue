@@ -43,7 +43,6 @@ export default {
 };
 </script>
 
-
 <style>
 .home-component {
   display: flex;
@@ -83,15 +82,18 @@ export default {
 }
 
 .btn {
-  padding: 1em 2em;
+  padding: 0.5em 1.5em;
   margin: 0 1em;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   border-radius: 10px;
   font-weight: bold;
   color: white;
   background-color: black;
+  border: black;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 .hero-bottom {

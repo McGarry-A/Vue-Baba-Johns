@@ -33,7 +33,6 @@ export default {
   props: {
     sectionName: String,
     products: Object,
-    addToBasket: Function,
   },
   data: function () {
     return {

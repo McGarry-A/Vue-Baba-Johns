@@ -8,7 +8,7 @@
         <input v-model="form.password" placeholder="Password" />
         <button type="submit">Log in</button>
         <p>
-          Dont have an account?
+          Dont have an account? 
           <span @click="() => (login.login = !login.login)">Register</span>
         </p>
       </div>

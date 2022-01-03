@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeComponent :basket="this.basket" />
+    <HomeComponent />
   </div>
 </template>
 
@@ -10,9 +10,6 @@ import HomeComponent from "@/components/HomeComponent.vue";
 
 export default {
   name: "Home",
-  props: {
-    basket: Array,
-  },
   components: {
     HomeComponent,
   },

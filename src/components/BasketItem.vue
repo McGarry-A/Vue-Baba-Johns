@@ -25,7 +25,6 @@ export default {
   props: {
     item: Object,
     index: Number,
-    removeItemFromBasket: Function,
   },
   methods: {
     changeQuantity: function (operation) {

@@ -26,7 +26,7 @@
           >
         </li>
         <li v-if="!state.username" class="nav-list-item">
-          <router-link class="link" to="/login">Login</router-link>
+          <router-link class="link" to="/login"> Login </router-link>
         </li>
         <li v-else class="nav-list-item">
           <router-link class="link" to="/login">{{
@@ -40,7 +40,8 @@
               name: 'Basket',
               params: { basket: this.basket },
             }"
-            >Basket</router-link
+          >
+            Basket</router-link
           >
         </li>
         <li v-if="state.username">
@@ -56,6 +57,9 @@
 <script>
 import { state, actions } from "./utils/user";
 import { basketState } from "./utils/basket";
+import { User3Line } from "vue-icon-packs/ri";
+import { Basket } from "vue-icon-packs/bx";
+
 export default {
   data: function () {
     return {
@@ -63,6 +67,8 @@ export default {
       state,
       actions,
       basketState,
+      User3Line,
+      Basket,
     };
   },
   methods: {
@@ -115,7 +121,7 @@ export default {
 }
 
 .nav-list-item {
-  padding: 0 0 0 1.8em;
+  padding: 0 0 0 2.2em;
 }
 
 .link {
