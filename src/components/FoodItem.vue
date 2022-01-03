@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1 id="section-title">
-      {{ sectionName }}
+      {{ capitaliseFirstLetter(sectionName) }}
     </h1>
   </header>
   <div class="products-section">
@@ -28,6 +28,7 @@
 
 <script>
 import { basketActions } from "../utils/basket";
+import { capitaliseFirstLetter } from "../utils/index";
 export default {
   props: {
     sectionName: String,
@@ -37,6 +38,7 @@ export default {
   data: function () {
     return {
       basketActions,
+      capitaliseFirstLetter,
     };
   },
   methods: {

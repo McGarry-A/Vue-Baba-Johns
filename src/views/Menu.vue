@@ -15,7 +15,9 @@
             }"
             class="menu-link"
           >
-            <h1 class="menu-card-title">{{ section.name }}</h1>
+            <h1 class="menu-card-title">
+              {{ capitaliseFirstLetter(section.name) }}
+            </h1>
           </router-link>
         </div>
       </div>
@@ -25,7 +27,7 @@
 
 <script>
 import { data } from "../data.js";
-
+import { capitaliseFirstLetter } from "../utils/index";
 export default {
   name: "Home",
   props: {
@@ -35,6 +37,7 @@ export default {
   data: function () {
     return {
       data,
+      capitaliseFirstLetter,
     };
   },
   methods: {

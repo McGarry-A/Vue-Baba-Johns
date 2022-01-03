@@ -51,3 +51,7 @@ export const saveBasket = async (username, basket) => {
   const data = response.json();
   console.log(data);
 };
+
+export const capitaliseFirstLetter = (s) => {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
