@@ -19,9 +19,9 @@
               >Menu</router-link
             >
           </button>
-          <button class="btn">
+          <!-- <button class="btn">
             <router-link class="btn-link" to="/login">Register</router-link>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

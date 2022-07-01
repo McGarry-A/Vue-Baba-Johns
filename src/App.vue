@@ -25,14 +25,14 @@
             >Menu</router-link
           >
         </li>
-        <li v-if="!state.username" class="nav-list-item">
+        <!-- <li v-if="!state.username" class="nav-list-item">
           <router-link class="link" to="/login"> Login </router-link>
-        </li>
-        <li v-else class="nav-list-item">
+        </li> -->
+        <!-- <li v-else class="nav-list-item">
           <router-link class="link" to="/login">{{
             state.username
           }}</router-link>
-        </li>
+        </li> -->
         <li class="nav-list-item">
           <router-link
             class="link"
